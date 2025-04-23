@@ -14,9 +14,9 @@ func TestType(t *testing.T) {
 print _main_x`,
 		},
 		{
-			name: "Sensor_GetHealth",
+			name: "Sensor_Health",
 			input: TestMain(`_, _, _, b := m.UnitLocateDamaged()
-x := b.GetHealth()
+x := b.Health()
 print(x)`, true, false),
 			output: `ulocate damaged core true @copper @_ @_ @_ _main_b
 sensor _main_x _main_b @health

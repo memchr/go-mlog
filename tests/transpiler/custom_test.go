@@ -15,7 +15,7 @@ print _main_x`,
 		},
 		{
 			name: "NestedSelector",
-			input: TestMain(`x := m.This.GetX()
+			input: TestMain(`x := m.This.X()
 print(x)`, true, false),
 			output: `sensor _main_x @this @x
 print _main_x`,

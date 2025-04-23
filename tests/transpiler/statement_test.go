@@ -56,7 +56,7 @@ jump 3 notEqual _main_x true`,
 			input: TestMain(`s := m.B("switch1")
 a := 1
 b := 2
-for s.IsEnabled() && a < b {
+for s.Enabled() && a < b {
     print(1)
 }`, true, false),
 			output: `set _main_s switch1
