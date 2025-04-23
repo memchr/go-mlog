@@ -104,6 +104,24 @@ func initBaseTranspiler() {
 			}, nil
 		},
 	})
+	transpiler.RegisterFuncTranslation("m.Wait", transpiler.Translator{
+		Count: func(args, vars []transpiler.Resolvable) int {
+			return 1
+		},
+		Variables: 0,
+		Translate: func(args, vars []transpiler.Resolvable) ([]transpiler.MLOGStatement, error) {
+			return []transpiler.MLOGStatement{
+				&transpiler.MLOG{
+					Statement: [][]transpiler.Resolvable{
+						{
+							&transpiler.Value{Value: "wait"},
+							&transpiler.Value{Value: args[0].GetValue()},
+						},
+					},
+				},
+			}, nil
+		},
+	})
 	transpiler.RegisterFuncTranslation("m.Radar", transpiler.Translator{
 		Count: func(args []transpiler.Resolvable, vars []transpiler.Resolvable) int {
 			return 1

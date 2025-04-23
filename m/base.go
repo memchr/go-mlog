@@ -30,6 +30,9 @@ func Sensor(block HealthC, sense string) float64 {
 	return 0
 }
 
+func Wait[A float](time A) {
+}
+
 // String equivalent of Sensor
 func SensorStr(block HealthC, sense string) string {
 	return ""
