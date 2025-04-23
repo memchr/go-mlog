@@ -27,6 +27,9 @@ const (
 type Link = interface{}
 
 type HealthC = interface {
+	// Object's content name.
+	Type() string
+
 	// the current health value of Unit or Building
 	Health() int
 

@@ -50,6 +50,7 @@ func init() {
 	transpiler.RegisterSelector("m.MapH", "@maph")
 
 	// HealthC's attributes
+	transpiler.RegisterFuncTranslation("Type", createSensorFuncTranslation("@type"))
 	transpiler.RegisterFuncTranslation("Health", createSensorFuncTranslation("@health"))
 	transpiler.RegisterFuncTranslation("Name", createSensorFuncTranslation("@name"))
 	transpiler.RegisterFuncTranslation("X", createSensorFuncTranslation("@x"))
