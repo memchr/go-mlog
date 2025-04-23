@@ -17,6 +17,7 @@ var transpileCmd = &cobra.Command{
 	Short: "Transpile Go to MLOG",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
+		transpiler.MainFuncName = viper.GetString("main")
 		result, err := transpiler.GolangToMLOGFile(args[0], transpiler.Options{
 			Numbers:       viper.GetBool("numbers"),
 			Comments:      viper.GetBool("comments"),

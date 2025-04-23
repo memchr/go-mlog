@@ -20,7 +20,7 @@ const FunctionReturnVariable = `@return`
 const FunctionArgumentPrefix = `@funcArg_`
 const FunctionTrampolinePrefix = `@funcTramp_`
 
-const mainFuncName = `main`
+var MainFuncName = `main`
 
 func GolangToMLOGFile(fileName string, options Options) (string, error) {
 	file, err := ioutil.ReadFile(fileName)
@@ -61,7 +61,7 @@ func GolangToMLOG(input string, options Options) (string, error) {
 	for _, decl := range f.Decls {
 		switch castDecl := decl.(type) {
 		case *ast.FuncDecl:
-			if castDecl.Name.Name == mainFuncName {
+			if castDecl.Name.Name == MainFuncName {
 				mainFunc = castDecl
 			}
 		case *ast.GenDecl:
@@ -88,7 +88,7 @@ func GolangToMLOG(input string, options Options) (string, error) {
 	for _, decl := range f.Decls {
 		switch castDecl := decl.(type) {
 		case *ast.FuncDecl:
-			if castDecl.Name.Name == mainFuncName {
+			if castDecl.Name.Name == MainFuncName {
 				continue
 			}
 
@@ -214,11 +214,11 @@ func GolangToMLOG(input string, options Options) (string, error) {
 
 	mainStatements = append(mainStatements, &MLOGTrampolineBack{
 		Stacked:  ctx.Value(contextOptions).(Options).Stacked,
-		Function: mainFuncName,
+		Function: MainFuncName,
 	})
 
 	global.Functions = append(global.Functions, &Function{
-		Name:                 mainFuncName,
+		Name:                 MainFuncName,
 		Called:               true,
 		Declaration:          mainFunc,
 		Statements:           mainStatements,
@@ -286,7 +286,7 @@ func GolangToMLOG(input string, options Options) (string, error) {
 			&Value{Value: "always"},
 		},
 		JumpTarget: &FunctionJumpTarget{
-			FunctionName: mainFuncName,
+			FunctionName: MainFuncName,
 		},
 	})
 

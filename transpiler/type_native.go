@@ -38,7 +38,7 @@ type MLOGTrampolineBack struct {
 }
 
 func (m *MLOGTrampolineBack) PreProcess(ctx context.Context, global *Global, function *Function) error {
-	if m.Function == mainFuncName {
+	if m.Function == MainFuncName {
 		m.Statement = [][]Resolvable{
 			{
 				&Value{Value: "end"},

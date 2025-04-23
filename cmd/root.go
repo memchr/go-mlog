@@ -59,6 +59,7 @@ func init() {
 	rootCmd.PersistentFlags().String("output", "", "Output file. Outputs to stdout if unspecified")
 
 	rootCmd.PersistentFlags().Bool("metrics", false, "Output source metrics after execution")
+	rootCmd.PersistentFlags().String("main", "main", "Name of main function")
 
 	_ = viper.BindPFlag("log", rootCmd.PersistentFlags().Lookup("log"))
 	_ = viper.BindPFlag("colors", rootCmd.PersistentFlags().Lookup("colors"))
@@ -72,4 +73,5 @@ func init() {
 	_ = viper.BindPFlag("output", rootCmd.PersistentFlags().Lookup("output"))
 
 	_ = viper.BindPFlag("metrics", rootCmd.PersistentFlags().Lookup("metrics"))
+	_ = viper.BindPFlag("main", rootCmd.PersistentFlags().Lookup("main"))
 }
