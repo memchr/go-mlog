@@ -1,5 +1,6 @@
 package main
 
+//go:generate go run gen/resources/main.go
 import (
 	"github.com/Vilsol/go-mlog/cmd"
 	_ "github.com/Vilsol/go-mlog/m"

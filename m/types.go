@@ -68,6 +68,8 @@ type Unit = interface {
 type Building = interface {
 	HealthC
 	Ranged
+	Items
+	Liquids
 
 	// Total amount of liquids currently stored in the container(Building)
 	TotalLiquids() float64
