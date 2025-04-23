@@ -27,35 +27,35 @@ const (
 type Link = interface{}
 
 type HealthC = interface {
-	//Get the current health value of Unit or Building
-	GetHealth() int
+	// the current health value of Unit or Building
+	Health() int
 
-	//Gets the name of Unit or Building
-	GetName() string
+	// the name of Unit or Building
+	Name() string
 
-	//Get the X coordinate of Unit or Building
-	GetX() float64
+	// the X coordinate of Unit or Building
+	X() float64
 
-	//Get the Y coordinate of Unit or Building
-	GetY() float64
+	// the Y coordinate of Unit or Building
+	Y() float64
 
-	// Get the total number of items stored in Unit or Building
-	GetTotalItems() int
+	//  the total number of items stored in Unit or Building
+	TotalItems() int
 
-	// Get the capacity of items stored in Unit or Building
-	GetItemCapacity() int
+	//  the capacity of items stored in Unit or Building
+	ItemCapacity() int
 
-	// Get the angle of view of Unit or Building
-	GetRotation() float64
+	//  the angle of view of Unit or Building
+	Rotation() float64
 
-	// Get the X coordinate of Unit or Building's collimator
-	GetShootX() float64
+	//  the X coordinate of Unit or Building's collimator
+	ShootX() float64
 
-	// Get the Y coordinate of Unit or Building's collimator
-	GetShootY() float64
+	//  the Y coordinate of Unit or Building's collimator
+	ShootY() float64
 
 	// Check whether Unit or Building fires
-	IsShooting() bool
+	Shooting() bool
 }
 
 type Ranged = interface{}
@@ -69,41 +69,41 @@ type Building = interface {
 	HealthC
 	Ranged
 
-	// Gets total amount of liquids currently stored in the container(Building)
-	GetTotalLiquids() float64
+	// Total amount of liquids currently stored in the container(Building)
+	TotalLiquids() float64
 
-	// Gets the maximum amount of liquids stored in the container(Building)
-	GetLiquidCapaticy() float64
+	// The maximum amount of liquids stored in the container(Building)
+	LiquidCapaticy() float64
 
 	// In case of unbuffered consumers, this is the percentage (1.0f = 100%) of the demanded power which can be supplied.
 	// Blocks will work at a reduced efficiency if this is not equal to 1.0f.
 	// In case of buffered consumers, this is storage capacity.
-	GetTotalPower() float64
+	TotalPower() float64
 
 	// In case of unbuffered consumers, this is the 0
-	// n case of buffered consumers, this is the maximum storage capacity.
-	GetPowerCapaticy() float64
+	// In case of buffered consumers, this is the maximum storage capacity.
+	PowerCapaticy() float64
 
-	// Get the total power currently stored in the grid (Only machines connected to the grid)
-	GetPowerNetStored() float64
+	// The total power currently stored in the grid (Only machines connected to the grid)
+	PowerNetStored() float64
 
-	// Get the maximum power capacity in the grid (Only machines connected to the grid)
-	GetPowerNetCapacity() float64
+	// The maximum power capacity in the grid (Only machines connected to the grid)
+	PowerNetCapacity() float64
 
-	// Get the input power of the current grid (Only machines connected to the grid)
-	GetPowerNetIn() float64
+	// The input power of the current grid (Only machines connected to the grid)
+	PowerNetIn() float64
 
-	// Get the output power of the current grid (Only machines connected to the grid)
-	GetPowerNetOut() float64
+	// The output power of the current grid (Only machines connected to the grid)
+	PowerNetOut() float64
 
-	// Get the heat from the machine (Just Thorium Reactor)
-	GetHeat() float64
+	// The heat from the machine (Just Thorium Reactor)
+	Heat() float64
 
-	//Get machine efficiency
-	GetEfficiency() float64
+	// Machine efficiency
+	Efficiency() float64
 
-	//Check whether the machine is available
-	IsEnabled() bool
+	// Check whether the machine is available
+	Enabled() bool
 }
 
 var (
