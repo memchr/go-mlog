@@ -25,6 +25,8 @@ func expressionToMLOG(ctx context.Context, ident []Resolvable, expr ast.Expr) ([
 	case *ast.SelectorExpr:
 		mlog, _, err := selectorExprToMLOG(ctx, ident[0], castExpr)
 		return mlog, err
+	case *ast.TypeAssertExpr:
+		return expressionToMLOG(ctx, ident, castExpr.X)
 	}
 
 	return nil, Err(ctx, fmt.Sprintf("unsupported expression type: %T", expr))
